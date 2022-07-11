@@ -23,13 +23,13 @@ export function getCountryByName(name?: Maybe<string>, useAlias?: Maybe<boolean>
     (getCountries() || []).find(function (country: Country) {
       if (useAlias) {
         return (
-          country.name.toUpperCase() === name.toUpperCase() ||
+          country.name.toUpperCase() === name?.toUpperCase() ||
           (country.alias || []).find(function (alias) {
-            return alias.toUpperCase() === name.toUpperCase();
+            return alias.toUpperCase() === name?.toUpperCase();
           })
         );
       }
-      return country.name.toUpperCase() === name.toUpperCase();
+      return country.name.toUpperCase() === name?.toUpperCase();
     }) ?? null
   );
 }
@@ -51,16 +51,16 @@ export function getCountryByNameOrShortName(
     (getCountries() || []).find(function (country: Country) {
       if (useAlias) {
         return (
-          country.name.toUpperCase() === name.toUpperCase() ||
-          country.alpha2.toUpperCase() === name.toUpperCase() ||
+          country.name.toUpperCase() === name?.toUpperCase() ||
+          country.alpha2.toUpperCase() === name?.toUpperCase() ||
           (country.alias || []).find(function (alias) {
-            return alias.toUpperCase() === name.toUpperCase();
+            return alias.toUpperCase() === name?.toUpperCase();
           })
         );
       }
       return (
-        country.name.toUpperCase() === name.toUpperCase() ||
-        country.alpha2.toUpperCase() === name.toUpperCase()
+        country.name.toUpperCase() === name?.toUpperCase() ||
+        country.alpha2.toUpperCase() === name?.toUpperCase()
       );
     }) ?? null
   );
@@ -87,13 +87,13 @@ export function getProvinceByName(
     (country.provinces || []).find(function (province: Province) {
       if (useAlias) {
         return (
-          province.name.toUpperCase() === name.toUpperCase() ||
+          province.name.toUpperCase() === name?.toUpperCase() ||
           (province.alias || []).find(function (alias) {
-            return alias.toUpperCase() === name.toUpperCase();
+            return alias.toUpperCase() === name?.toUpperCase();
           })
         );
       }
-      return province.name.toUpperCase() === name.toUpperCase();
+      return province.name.toUpperCase() === name?.toUpperCase();
     }) ?? null
   );
 }
@@ -116,16 +116,16 @@ export function getProvinceByNameOrShortName(
     (country.provinces || []).find(function (province: Province) {
       if (useAlias) {
         return (
-          province.name.toUpperCase() === name.toUpperCase() ||
-          (province.short && province.short.toUpperCase() === name.toUpperCase()) ||
+          province.name.toUpperCase() === name?.toUpperCase() ||
+          (province.short && province.short.toUpperCase() === name?.toUpperCase()) ||
           (province.alias || []).find(function (alias) {
-            return alias.toUpperCase() === name.toUpperCase();
+            return alias.toUpperCase() === name?.toUpperCase();
           })
         );
       }
       return (
-        province.name.toUpperCase() === name.toUpperCase() ||
-        (province.short && province.short.toUpperCase() === name.toUpperCase())
+        province.name.toUpperCase() === name?.toUpperCase() ||
+        (province.short && province.short.toUpperCase() === name?.toUpperCase())
       );
     }) ?? null
   );
