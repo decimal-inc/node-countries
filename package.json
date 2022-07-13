@@ -3,7 +3,6 @@
   "version": "2.1.1",
   "main": "build/index.js",
   "description": "Countries and Provinces JSON Data",
-  "type": "module",
   "scripts": {
     "test": "jest --env=node --colors",
     "lint": "eslint --ext ts ./",
